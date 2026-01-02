@@ -1,7 +1,9 @@
 import { Link } from "react-router"
 import { CalendarDays, Bell, User } from "lucide-react"
+import { useState } from "react"
 
 const NavBar = () => {
+    const [selectedWeek, setSelectedWeek] = useState("Week 1")
   return (
   <header className='bg-base-300 border-b border-base-content/10'>
     <div className='mx-auto max-w-6xl p-4'>
@@ -27,10 +29,29 @@ const NavBar = () => {
         {/* CENTER */}
         <div className="absolute left-1/2 -translate-x-1/2">
             <div className="dropdown dropdown-center">
-                <div tabIndex={0} role="button" className="btn btn-ghost rounded-field m-1">Dropdown</div>
-                <ul tabIndex="-1" className="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm left-1/2 -translate-x-1/2">
-                    <li><a>Week 1</a></li>
-                    <li><a>Week 2</a></li>
+                <div 
+                    tabIndex={0} 
+                    role="button" 
+                    className="btn btn-ghost rounded-field m-1">{selectedWeek}</div>
+                <ul 
+                    tabIndex="-1" 
+                    className="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm left-1/2 -translate-x-1/2"
+                    >
+                    <li>
+                        <button onClick={() => setSelectedWeek ("Week 1")}>
+                            Week 1
+                        </button>
+                    </li>
+                    <li>
+                        <button onClick={() => setSelectedWeek ("Week 2")}>
+                            Week 2
+                        </button>
+                    </li>
+                    <li>
+                        <button onClick={() => setSelectedWeek ("Week 3")}>
+                            Week 3
+                        </button>
+                    </li>
                 </ul>
             </div>
         </div>
